@@ -10,6 +10,13 @@ NumberFacts.prototype.bindEvents = function () {
     const number = event.detail;
     const url = `http://numbersapi.com/${number}?json`;
     console.log(url);
+
+    const request = new Request(url);
+    request.get((numberData) => {
+      console.log(numberData);
+      PubSub.publish("NumberFacts:number-fact", numberData.text);
+    })
+
   });
 };
 
