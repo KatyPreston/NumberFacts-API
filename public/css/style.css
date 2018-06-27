@@ -1,3 +1,25 @@
 body {
   background-color: papayawhip;
 }
+
+#number-fact {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.number-fact__number::before {
+    content: 'Number ';
+}
+
+.number-fact__number::after {
+    content: ': ';
+}
+
+.number-fact__number {
+  font-weight: bolder;
+  color: hotpink;
+}
+
+.number-fact__text {
+
+}

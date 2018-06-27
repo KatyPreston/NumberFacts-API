@@ -11,8 +11,22 @@ ResultView.prototype.bindEvents = function () {
 };
 
 ResultView.prototype.render = function (numberFact) {
+  const firstSpace = numberFact.search(' ');
+  const number = numberFact.substr(0,firstSpace);
+  const text = numberFact.slice(firstSpace+1);
+
   const p = document.createElement('p');
-  p.textContent = numberFact;
+
+  const numberSpan = document.createElement('span');
+  numberSpan.classList.add('number-fact__number');
+  numberSpan.textContent = number;
+  p.appendChild(numberSpan);
+
+  const textSpan = document.createElement('span');
+  textSpan.classList.add('number-fact__text');
+  textSpan.textContent = text;
+  p.appendChild(textSpan);
+
   this.container.appendChild(p);
 };
 
